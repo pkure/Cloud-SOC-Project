@@ -5,13 +5,19 @@
 
 ## Introduction
 
-In this project, I build a mini honeynet in Azure and ingest log sources from various resources into a Log Analytics workspace, which is then used by Microsoft Sentinel to build attack maps, trigger alerts, and create incidents. I measured some security metrics in the insecure environment for 24 hours, apply some security controls to harden the environment, measure metrics for another 24 hours, then show the results below. The metrics we will show are:
+Microsoft Azure was used to create a honeyet, which included vulnerable Windows and Linux VMs. These VMs were opened up to the internet by turning their firewalls off and allowing all traffic to reach them, and a MS SQL Server was installed on the Windows VM. I created an 'attacker' VM to generate some additional logs/signin attempts for the 'honeynet VMs', including:
 
 - SecurityEvent (Windows Event Logs)
+- SecurityAlert (Log Analytics Alerts)
 - Syslog (Linux Event Logs)
-- SecurityAlert (Log Analytics Alerts Triggered)
-- SecurityIncident (Incidents created by Sentinel)
-- AzureNetworkAnalytics_CL (Malicious Flows allowed into our honeynet)
+- MS SQL Server Login attempts (the Windows VM had an empty MS SQL Server running)
+- SecurityIncident (Sentinel Incidents)
+- AzureNetworkAnalytics_CL (Malicious Flows detected)
+
+A Log Analytics Workspace was used to ingest the above log types from numerous sources, and KQL queries were used to observe and record a baseline for how many of which types of attacks were observed on the VMs. Microsoft Sentinel was used to create rules based on KQL queries, defining Incidents. 
+
+Overall, the goal of the project would be to quantify a baseline amount of attacks/incidents/malicious attempts, then strengthen the cloud deployment's security posture based on NIST 800-53 standards tested per Azure, then re-record the amount of attacks/incidents/malicious attempts, to compare the updated security posture to the insecure one. In the process I simulated creating a basic (insecure cloud environment), hardening it based on NIST 800-53 standards, using inbound log data to define Security Incidents, worked through numerous Incidents using NIST 800-61 methodology, and ended up with a hardened Cloud SOC & environment based on NIST recommendations.
+
 
 ## Architecture Before Hardening / Security Controls
 ![Architecture Diagram](https://i.imgur.com/aBDwnKb.jpg)
