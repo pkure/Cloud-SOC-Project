@@ -9,9 +9,9 @@
 
 ## Introduction
 
-This project involved seting up an insecure cloud environment, measuring real attacks against it (from the open internet), then harden everything and re-measure how many security incidents there are after setting up a SOC and using NIST standards!
+This project involved seting up an insecure cloud environment, measuring real attacks against it (from the open internet), then hardening everything and re-measuring how many security incidents there are after setting up a SOC and using NIST standards to improve security posture!
 
-Microsoft Azure was used to create a honeyet, which included vulnerable Windows and Linux VMs. These VMs were opened up to the internet by turning their firewalls off and allowing all traffic to reach them, and a MS SQL Server was installed on the Windows VM. I created an 'attacker' VM to generate some additional logs/signin attempts for the 'honeynet VMs', including:
+Microsoft Azure was used to create a honeyet, which included vulnerable Windows and Linux VMs. These VMs were exposed to the open internet by turning any firewalls off and allowing all traffic to reach them, additionally a MS SQL Server was installed on the Windows VM. I created an 'attacker' VM to generate some additional logs/signin attempts for the 'honeynet VMs', including:
 
 - SecurityEvent (Windows Event Logs)
 - SecurityAlert (Log Analytics Alerts)
@@ -26,24 +26,11 @@ Overall, the goal of the project would be to quantify a baseline amount of attac
 
 
 ## Architecture Before Hardening / Security Controls
-![Architecture Diagram](https://i.imgur.com/aBDwnKb.jpg)
+![Architecture Diagram](https://github.com/pkure/Cloud-SOC-Project/assets/108906109/79b6a7ff-9d1d-4eab-9bf2-d44c6ebffc62)
+)
 
 ## Architecture After Hardening / Security Controls
-![Architecture Diagram](https://i.imgur.com/YQNa9Pp.jpg)
-
-The architecture of the mini honeynet in Azure consists of the following components:
-
-- Virtual Network (VNet)
-- Network Security Group (NSG)
-- Virtual Machines (2 windows, 1 linux)
-- Log Analytics Workspace
-- Azure Key Vault
-- Azure Storage Account
-- Microsoft Sentinel
-
-For the "BEFORE" metrics, all resources were originally deployed, exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open, and all other resources are deployed with public endpoints visible to the Internet; aka, no use for Private Endpoints.
-
-For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
+![Architecture Diagram](https://github.com/pkure/Cloud-SOC-Project/assets/108906109/db60f6a9-ee22-4302-877d-a0d345564243)
 
 ## Attack Maps Before Hardening / Security Controls
 ![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/1qvswSX.png)<br>
