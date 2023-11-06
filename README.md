@@ -1,9 +1,15 @@
 # Cloud-SOC-Project
 
-# Building a SOC + Honeynet in Azure (Live Traffic)
-![Cloud Honeynet / SOC](https://i.imgur.com/ZWxe03e.jpg)
+# Building a SOC + Honeynet in Azure
+![Cloud Honeynet / SOC](https://github.com/pkure/Cloud-SOC-Project/assets/108906109/9ed0af00-d4cd-4837-9ef3-f9637890b4de)
+]
+
+
+
 
 ## Introduction
+
+This project involved seting up an insecure cloud environment, measuring real attacks against it (from the open internet), then harden everything and re-measure how many security incidents there are after setting up a SOC and using NIST standards!
 
 Microsoft Azure was used to create a honeyet, which included vulnerable Windows and Linux VMs. These VMs were opened up to the internet by turning their firewalls off and allowing all traffic to reach them, and a MS SQL Server was installed on the Windows VM. I created an 'attacker' VM to generate some additional logs/signin attempts for the 'honeynet VMs', including:
 
