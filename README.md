@@ -2,7 +2,7 @@
 
 # Building a SOC + Honeynet in Azure
 ![Cloud Honeynet / SOC](https://github.com/pkure/Cloud-SOC-Project/assets/108906109/9ed0af00-d4cd-4837-9ef3-f9637890b4de)
-]
+
 
 
 
