@@ -4,7 +4,7 @@
 ![Cloud Honeynet / SOC](https://github.com/pkure/Cloud-SOC-Project/assets/108906109/9ed0af00-d4cd-4837-9ef3-f9637890b4de)
 
 
-
+Azure Honeynet lab with Log Analytics Workspace, Sentinel, KQL detections, attack-mapping, NIST 800-53-hardened controls.
 
 
 ## Introduction
